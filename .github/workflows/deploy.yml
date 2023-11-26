@@ -2,13 +2,28 @@ name: Deploy
 
 on:
   push:
-    branches: ["main"]
+    tags: ['v*.*.*']
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      # install deps
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: 'pnpm'
+      - run: pnpm install --frozen-lockfile
+
+      # build project
+      - run: npm run build
+
+      # deploy
       - uses: own3d/bunny-action@v1
         env:
           BUNNY_API_ACCESS_KEY: ${{ secrets.BUNNY_API_ACCESS_KEY }}
@@ -17,4 +32,4 @@ jobs:
           BUNNY_STORAGE_PASSWORD: ${{ secrets.BUNNY_STORAGE_PASSWORD }}
           BUNNY_PULL_ZONE_ID: ${{ secrets.BUNNY_PULL_ZONE_ID }}
         with:
-          args: deploy --dir=dist
+          args: deploy --dir=build
