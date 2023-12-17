@@ -11,12 +11,12 @@
 		<h1 class="mt-6 text-5xl font-bold">Lav Elektronik</h1>
 		<hr class="mt-6" />
 		{#each paragraphs as pText}
-			<p class="feature-p">{pText}</p>
+			<p class="text-lg mt-2">{pText}</p>
 		{/each}
 		<hr class="mt-6" />
 		<h2 class="mt-6 text-3xl">{contact}</h2>
-		<p class="contact-p">{contactName}</p>
-		<p class="contact-p">
+		<p class="text-base mt-2">{contactName}</p>
+		<p class="text-base mt-2">
 			<a
 				aria-label="Contact phone number"
 				href="tel:+38163505192"
