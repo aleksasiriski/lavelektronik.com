@@ -1,5 +1,5 @@
 {
-	"name": "Lav Elektronik",
+	"name": "lavelektronik.com",
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
@@ -13,7 +13,6 @@
 		"format": "prettier --write ."
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-auto": "^2.0.0",
 		"@sveltejs/adapter-static": "^2.0.3",
 		"@sveltejs/kit": "^1.30.3",
 		"@typescript-eslint/eslint-plugin": "^6.14.0",
