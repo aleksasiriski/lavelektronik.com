@@ -2,7 +2,7 @@
 node_modules
 /build
 /.svelte-kit
-/.devbox
+/.vercel
 /package
 .env
 .env.*
